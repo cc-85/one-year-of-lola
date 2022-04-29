@@ -5,16 +5,19 @@ body {
     font-family: 'Amatic SC', cursive;
     color: #4fa59c;
     background-color: #e6ded1;
+    text-align: center;
 }
 
 h1 {
     font-size: 70px;
     text-shadow: -2px 2px #ffffff;
+    margin: 0;
 }
 
 h2 {
     color: #ffffff;
     font-size: 40px;
+    margin: 0;
 }
 
 button {
@@ -24,8 +27,29 @@ button {
         
 }
 
+.main-content {
+    margin: 25px 0;
+}
+
+.lola-head-selection {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr 1fr 3fr;
+}
+
+.lola-age-order {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr 1fr 3fr;
+    font-size: 30px;
+    margin: 25px 0;
+}
+
 .age {
     height: 324px;
+    background-repeat: no-repeat;
+}
+
+.swap {
+    display: grid;
 }
 
 
