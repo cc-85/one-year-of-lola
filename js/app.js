@@ -43,10 +43,21 @@ $(() => {
 
   $swapHeadsButton.on('click', e => {
     let element = $(e.target);
-    let left = element.parents('div.swap').prev().children()
-    let right = element.parents('div.swap').next().children()
+    let leftElement = element.parents('div.swap').prev().children();
+    let rightElement = element.parents('div.swap').next().children()
+
+    let left = leftElement.attr("class");
+    let right = rightElement.attr("class");
 
     console.log(left, right);
+
+
+    rightElement.addClass(left);
+    leftElement.addClass(right);
+
+    leftElement.removeClass(left).addClass(' age');
+    rightElement.removeClass(right).addClass(' age');
+
 
     
     // console.log($(this).prev());
