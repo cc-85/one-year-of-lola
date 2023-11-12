@@ -35,39 +35,26 @@ $(() => {
       .addClass(randomLolaGenerator);
   }
 
-//   $('.delete-file').on('click', e => {
-//     let element = $(e.target);
-//     console.log(element);
-//   });
-
 
   $swapHeadsButton.on('click', e => {
+    // find div before and after
     let element = $(e.target);
     let leftElement = element.parents('div.swap').prev().children();
     let rightElement = element.parents('div.swap').next().children()
-
+    
+    // get classes and store in variables
     let left = leftElement.attr("class");
     let right = rightElement.attr("class");
 
     console.log(left, right);
 
-
+    // add stored classes swapped around
     rightElement.addClass(left);
     leftElement.addClass(right);
 
+    // remove existing class
     leftElement.removeClass(left).addClass(' age');
     rightElement.removeClass(right).addClass(' age');
-
-
-    
-    // console.log($(this).prev());
-    
-    // $(this).attr('class')
-    // $(this).attr('class')
-    // find class of div before and after
-    // store in vars
-    // remove existing class
-    // add stored classes swapped around
   });
 
 
