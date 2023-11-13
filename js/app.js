@@ -21,18 +21,35 @@ $(() => {
       const $swapHeadsButton = $('.swap');
 
 
-    //generates an array of LolaHeads at random
-  function randomLolaGenerator(){
-    const randomNumber = Math.floor(Math.random()* 15);
-    return lolaTypes[randomNumber];
+  // generate an array of 3 random but unique numbers
+  function lolaShuffle(arr){
+    var idx, rand, tmp;
+    // start at the end
+    idx = arr.length - 1;
+    while (idx) {
+      //  Take one place after another reducing the number of places every time such that every place gets swapped at least once with a randomly chosen other place
+      rand = Math.floor(Math.random() * idx--);
+      // swap current place with random place
+      temp = arr[idx];
+      arr[idx] = arr[rand];
+      arr[rand] = temp;
+    }
+    return arr;
   }
+  
+  // take the first three elements of the array
+  var threeLolaTypes = lolaShuffle(lolaTypes).slice(0,3);
+  console.log(threeLolaTypes);
 
-// adds new array of LolaHeads to page
-  function newSelection() {
-    $('.lola-head-selection')
-      .find('div.age')
-      .removeClass(lolaTypes.join(' '))
-      .addClass(randomLolaGenerator);
+  //  apply each number from array to .lola-head-selection
+  function threeNewHeads() {
+    $('.lola-head-selection').find('div.age').each(function(idx){
+      $(this).removeClass(lolaTypes.join(' '))
+      .addClass(threeLolaTypes[idx]);
+      
+      console.log(threeLolaTypes[idx] + "!!!");
+   })
+
   }
 
 
@@ -41,7 +58,7 @@ $(() => {
     let element = $(e.target);
     let leftElement = element.parents('div.swap').prev().children();
     let rightElement = element.parents('div.swap').next().children()
-    
+
     // get classes and store in variables
     let left = leftElement.attr("class");
     let right = rightElement.attr("class");
@@ -58,10 +75,7 @@ $(() => {
   });
 
 
-
-  newSelection();
-
-  
+  threeNewHeads();
 
   
   });
